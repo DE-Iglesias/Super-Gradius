@@ -34,11 +34,11 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/data/New Project.oep");
+		urls.push ("assets/data/OgmoLevel.oep");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/data/Unsaved Level.oel");
+		urls.push ("assets/data/UnsavedLevel.oel");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
@@ -58,12 +58,12 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("flixel/sounds/beep.ogg");
-		types.push (lime.Assets.AssetType.SOUND);
+		urls.push ("flixel/sounds/beep.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
-		urls.push ("flixel/sounds/flixel.ogg");
-		types.push (lime.Assets.AssetType.SOUND);
+		urls.push ("flixel/sounds/flixel.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
 		urls.push ("Nokia Cellphone FC Small");
@@ -143,7 +143,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "87",
+			build: "98",
 			company: "PutoElQueLee",
 			file: "NewProject",
 			fps: 60,
@@ -160,10 +160,10 @@ class ApplicationMain {
 					depthBuffer: false,
 					display: 0,
 					fullscreen: false,
-					hardware: false,
+					hardware: true,
 					height: 480,
 					parameters: "{}",
-					resizable: false,
+					resizable: true,
 					stencilBuffer: true,
 					title: "New Project",
 					vsync: true,

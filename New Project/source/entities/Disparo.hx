@@ -16,17 +16,24 @@ class Disparo extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		
-		makeGraphic(5, 5, FlxColor.WHITE);
+		makeGraphic(5, 5, FlxColor.BLUE);
 		
 		velocity.x = Reg.velocidadBala;
 	}
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed);
-		
+	 
 		if (this.x > FlxG.width) 
 		{
 			kill();
 		}
 	}
+	override public function destroy():Void 
+	{
+		FlxG.state.remove(this);
+		
+		super.destroy();
+	}
+	
 }

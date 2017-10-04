@@ -11,7 +11,9 @@ import flixel.group.FlxGroup.FlxTypedGroup;
  */
 class Player extends FlxSprite 
 {
-	public var balas:FlxTypedGroup<Disparo>;
+	public var disparo:Disparo;
+	public var timer:Float = 0;
+	public var vidas:Int = 3;
 	
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
@@ -20,14 +22,6 @@ class Player extends FlxSprite
 		animation.add("fly", [0, 1], 12, true);
 		animation.play("fly");
 		
-		
-		balas = new FlxTypedGroup<Disparo>();
-		for (i in 0...3)
-		{
-			var bala:Disparo = new Disparo(this.x, this.y);
-			balas.add(bala);
-		}
-		FlxG.state.add(balas);
 	}
 	
 	override public function update(elapsed:Float):Void 
@@ -38,9 +32,9 @@ class Player extends FlxSprite
 		
 		checkBoundaries();
 		movimiento();
+		disparar();
+		timer += elapsed;
 	}
-	
-
 	
 	private function movimiento()
 	{
@@ -64,5 +58,20 @@ class Player extends FlxSprite
 			this.y = FlxG.height - FlxG.height;
 		if (this.y > FlxG.height - this.height)
 			this.y = FlxG.height - this.height;
+	}
+	
+	private function disparar()
+	{
+		if (FlxG.keys.pressed.SPACE)
+		{
+			if (timer >= 0.25)
+			{
+				timer = 0;
+				var disparo = new Disparo(); 
+				disparo.x = x + width;
+				disparo.y = y + height / 2;
+				FlxG.state.add(disparo);
+			}
+		}
 	}
 }
