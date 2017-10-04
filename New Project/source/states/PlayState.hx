@@ -29,14 +29,13 @@ class PlayState extends FlxState
 		loader =  new FlxOgmoLoader(AssetPaths.UnsavedLevel__oel);
 		
 		add(player);
+		add(enemGroup);
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 		
-		
 	}
-	
-	
+
 }
